@@ -1,0 +1,81 @@
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX metavd: <http://togodb.org/ontology/metavd#>
+PREFIX metavd_cnet: <http://togodb.org/ontology/metavd_cnet#>
+PREFIX metavd_cskg_map: <http://togodb.org/ontology/metavd_cskg_map#>
+PREFIX metavd_map: <http://togodb.org/ontology/metavd_map#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://weso.es/shapes/>
+
+:MetavdCskgMap  [<http://togodb.org/entry/metavd_cskg_map/>~]  AND   # 99241 instances
+{
+   rdf:type  [<http://togodb.org/MetavdCskgMap>]  ;            # 100.0 % (99241 instances).
+   metavd_cskg_map:sbj  xsd:string  ;                          # 100.0 % (99241 instances).
+   metavd_cskg_map:obj_abst_level  xsd:string  ;               # 100.0 % (99241 instances).
+   metavd_cskg_map:obj_uri  IRI  ;                             # 100.0 % (99241 instances).
+   metavd_cskg_map:prd_uri  IRI  ;                             # 100.0 % (99241 instances).
+   metavd_cskg_map:query  IRI  ;                               # 100.0 % (99241 instances).
+   metavd_cskg_map:sbj_abst_level  xsd:string  ;               # 100.0 % (99241 instances).
+   metavd_cskg_map:sbj_uri  IRI  ;                             # 100.0 % (99241 instances).
+   metavd_cskg_map:prd  xsd:string  ;                          # 100.0 % (99241 instances).
+   metavd_cskg_map:source  xsd:string  ;                       # 100.0 % (99241 instances).
+   rdfs:label  xsd:string  ;                                   # 100.0 % (99241 instances).
+   metavd_cskg_map:obj  xsd:string  ?
+            # 99.99899235195132 % (99240 instances). obj: xsd:string. Cardinality: {1}
+}
+
+
+:MetavdMap  [<http://togodb.org/entry/metavd_map/>~]  AND   # 1656 instances
+{
+   rdf:type  [<http://togodb.org/MetavdMap>]  ;                # 100.0 % (1656 instances).
+   metavd_map:match_level  IRI  ;                              # 100.0 % (1656 instances).
+   rdfs:label  xsd:string  ;                                   # 100.0 % (1656 instances).
+   metavd_map:metavd_headname  xsd:string  ;                   # 100.0 % (1656 instances).
+   metavd_map:cnet_term  xsd:string                            # 100.0 % (1656 instances).
+}
+
+
+:Metavd  [<http://togodb.org/entry/metavd/>~]  AND   # 2801 instances
+{
+   rdf:type  [<http://togodb.org/Metavd>]  ;                   # 100.0 % (2801 instances).
+   metavd:to_action_idx  @:MetavdCnet  ;                       # 100.0 % (2801 instances).
+   metavd:from_action_name  xsd:string  ;                      # 100.0 % (2801 instances).
+   rdfs:label  xsd:string  ;                                   # 100.0 % (2801 instances).
+   metavd:to_dataset  xsd:string  ;                            # 100.0 % (2801 instances).
+   metavd:from_action_idx  @:MetavdCnet  ;                     # 100.0 % (2801 instances).
+   metavd:from_dataset  xsd:string  ;                          # 100.0 % (2801 instances).
+   metavd:relation  IRI  ;                                     # 100.0 % (2801 instances).
+   metavd:to_action_name  xsd:string                           # 100.0 % (2801 instances).
+}
+
+
+:MetavdCnet  [<http://togodb.org/metavd/>~]  AND   # 986 instances
+{
+   rdf:type  [<http://togodb.org/MetavdCnet>]  ;               # 100.0 % (986 instances).
+   metavd_cnet:alt_name  xsd:string  +;                        # 100.0 % (986 instances).
+            # 97.56592292089249 % (962 instances). obj: xsd:string. Cardinality: {1}
+   rdfs:label  xsd:string  ;                                   # 100.0 % (986 instances).
+   metavd_cnet:ref  IRI  ?;
+            # 38.03245436105477 % (375 instances). obj: IRI. Cardinality: {1}
+   metavd_cnet:cn_uri  IRI  ?
+            # 31.541582150101423 % (311 instances). obj: IRI. Cardinality: {1}
+}
+
+
+:Property   # 24 instances
+{
+   rdf:type  [rdf:Property]                                    # 100.0 % (24 instances).
+}
+
+
+:Class  [<http://togodb.org/>~]  AND   # 4 instances
+{
+   rdf:type  [rdfs:Class]                                      # 100.0 % (4 instances).
+}
+
+
