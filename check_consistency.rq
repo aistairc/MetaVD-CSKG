@@ -1,0 +1,24 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <http://togodb.org/ontology/metavd#>
+PREFIX metavd_cskg_map: <http://togodb.org/ontology/metavd_cskg_map#>
+PREFIX metavd_cnet: <http://togodb.org/ontology/metavd_cnet#> 
+
+SELECT distinct ?fn ?fn_abst ?tn ?tn_abst WHERE {
+  [ :from_action_name ?fn ;
+    :relation <http://togodb.org/metavd/is-a> ;
+    :to_action_name ?tn
+  ] .
+
+  [ metavd_cnet:alt_name ?fn_alt ;
+    rdfs:label ?fn ] .
+  [ metavd_cnet:alt_name ?tn_alt ;
+    rdfs:label ?tn ] .
+  
+  BIND(LCASE(REPLACE(?fn_alt, "_", " ")) as ?_fn_alt)
+  BIND(LCASE(REPLACE(?tn_alt, "_", " ")) as ?_tn_alt)
+  [ metavd_cskg_map:sbj_abst_level ?fn_abst ;
+    rdfs:label ?_fn_alt ] .
+  [ metavd_cskg_map:sbj_abst_level ?tn_abst ;
+    rdfs:label ?_tn_alt ] .
+}

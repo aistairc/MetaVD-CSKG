@@ -1,0 +1,16 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX metavd_map: <http://togodb.org/ontology/metavd_map#>
+PREFIX metavd_cskg_map: <http://togodb.org/ontology/metavd_cskg_map#>
+
+select distinct ?s ?l {
+  [ metavd_map:metavd_headname ?l ;
+    metavd_map:cnet_term ?alt ] .
+  BIND(LCASE(REPLACE(?alt, "_", " ")) as ?_alt)
+  [ metavd_cskg_map:obj "intelligent agent activity" ;
+   metavd_cskg_map:sbj_uri ?cnuri ;
+   metavd_cskg_map:prd "is a" ;
+   metavd_cskg_map:sbj ?_alt ] .
+  ?s rdfs:label ?l ;
+     a <http://togodb.org/MetavdCnet> .
+}

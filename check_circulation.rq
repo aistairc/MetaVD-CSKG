@@ -1,0 +1,16 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <http://togodb.org/ontology/metavd#>
+
+SELECT ?f0n ?fn ?tn WHERE {
+ [ :from_action_idx ?t ;
+   :relation <http://togodb.org/metavd/is-a> ;
+   :to_action_idx ?f0 ] .
+ [ :from_action_idx ?f0 ;
+   :from_action_name ?f0n ;
+   :relation <http://togodb.org/metavd/is-a> ;
+   :to_action_idx ?f; :to_action_name ?fn] .
+ [ :from_action_idx ?f ;
+   :relation <http://togodb.org/metavd/is-a> ;
+   :to_action_idx ?t;
+   :to_action_name ?tn] }
